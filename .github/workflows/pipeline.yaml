@@ -10,7 +10,7 @@ on:
       - 'feature**'
 
 env:
-  SAM_TEMPLATE: template.yaml
+  SAM_TEMPLATE: testing-app/template.yaml
   TESTING_STACK_NAME: sam-app
   TESTING_PIPELINE_EXECUTION_ROLE: arn:aws:iam::067364754101:role/aws-sam-cli-managed-testing-PipelineExecutionRole-IQ26J8QKPWFC
   TESTING_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::067364754101:role/aws-sam-cli-managed-testi-CloudFormationExecutionR-107CD5YEBL43P
@@ -84,7 +84,7 @@ jobs:
         with:
           python-version: '3.10'
       - uses: aws-actions/setup-sam@v2
-      - run: sam build --template testing-app/template.yaml --use-container
+      - run: sam build --template ${SAM_TEMPLATE} --use-container
 
       - name: Assume the testing pipeline user role
         uses: aws-actions/configure-aws-credentials@v1-node16
