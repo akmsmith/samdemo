@@ -1,0 +1,20 @@
+version = 0.1
+[default]
+[default.pipeline_bootstrap]
+[default.pipeline_bootstrap.parameters]
+oidc_provider_url = "https://token.actions.githubusercontent.com"
+oidc_client_id = "sts.amazonaws.com"
+github_org = "akmsmith"
+github_repo = "samdemo"
+deployment_branch = "main"
+oidc_provider = "github-actions"
+permissions_provider = "OpenID Connect (OIDC)"
+
+[testing]
+[testing.pipeline_bootstrap]
+[testing.pipeline_bootstrap.parameters]
+pipeline_execution_role = "arn:aws:iam::067364754101:role/aws-sam-cli-managed-testing-PipelineExecutionRole-IQ26J8QKPWFC"
+cloudformation_execution_role = "arn:aws:iam::067364754101:role/aws-sam-cli-managed-testi-CloudFormationExecutionR-107CD5YEBL43P"
+artifacts_bucket = "aws-sam-cli-managed-testing-pipel-artifactsbucket-1vpzpmr3ohx41"
+image_repository = ""
+region = "eu-west-2"
